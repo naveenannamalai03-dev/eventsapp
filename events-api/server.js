@@ -108,7 +108,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message });
 });
 
-const SERVICE_PORT = process.env.SERVICE_PORT ? process.env.SERVICE_PORT : 8082;
+const SERVICE_PORT = process.env.SERVICE_PORT ? process.env.SERVICE_PORT : 8083;
 const server = app.listen(SERVICE_PORT, () => {
     const host = server.address().address;
     const port = server.address().port;

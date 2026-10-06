@@ -7,7 +7,7 @@ describe('GET /', function () {
     it('responds with home page', function (done) {
 
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .get('/events')
             //respond with a OK and the specified JSON response
@@ -37,7 +37,7 @@ describe('GET /', function () {
 
     it('should display error page when the backend fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .get('/events')
             //respond with an error
@@ -64,7 +64,7 @@ describe('POST /event', function () {
     it('adds an event', function (done) {
     const data = { title: 'test event', description: 'even cooler test', id: 4321, location: 'Some Test Place', likes: 0, event_time: '2022-02-01 12:00:00' };
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .post('/event')
             //respond with a OK and the specified JSON response
@@ -93,7 +93,7 @@ describe('POST /event', function () {
 
     it('should display page when the post fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .post('/event')
             //respond with an error
@@ -120,7 +120,7 @@ describe('POST /event/update', function () {
     it('edits an event', function (done) {
     const data = { title: 'test event', description: 'even cooler test', id: 4321, location: 'Some Test Place', likes: 0, event_time: '2022-02-01 12:00:00' };
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .put('/event')
             //respond with a OK and the specified JSON response
@@ -148,7 +148,7 @@ describe('POST /event/update', function () {
 
     it('should display error page when the put fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .put('/event')
             //respond with an error
@@ -194,7 +194,7 @@ describe('GET /about', function () {
 describe('GET /event/:id', function () {
     it('responds with a single event', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .get('/event/1234')
             //respond with a OK and the specified JSON response
@@ -219,7 +219,7 @@ describe('GET /event/:id', function () {
 
     it('should display error page when the backend fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .get('/event/1234')
             //respond with an error
@@ -245,7 +245,7 @@ describe('GET /event/delete/:id', function () {
     it('deletes an event', function (done) {
         const data = { id: 1234 };
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .delete('/event/1234')
             //respond with a OK and the specified JSON response
@@ -272,7 +272,7 @@ describe('GET /event/delete/:id', function () {
 
     it('should display page when the delete fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .delete('/event/1234')
             //respond with an error
@@ -299,7 +299,7 @@ describe('POST /comment', function () {
     it('adds a comment', function (done) {
         const data = { id: 1234, comment: 'a comment' };
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .post('/comment')
             //respond with a OK and the specified JSON response
@@ -323,7 +323,7 @@ describe('POST /comment', function () {
 
     it('should display page when the post fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .post('/comment')
             //respond with an error
@@ -351,7 +351,7 @@ describe('POST /comment/delete/:event_id/:id', function () {
     it('deletes a comment', function (done) {
         const data = { event_id: 1234, id: 4321 };
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .delete('/comment/1234/4321')
             //respond with a OK and the specified JSON response
@@ -377,7 +377,7 @@ describe('POST /comment/delete/:event_id/:id', function () {
 
     it('should display error page when the delete fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .delete('/comment/1234/4321')
             //respond with an error
@@ -402,7 +402,7 @@ describe('POST /comment/delete/:event_id/:id', function () {
 describe('POST /event/like', function () {
     it('likes an event', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .put('/like/event')
             //respond with a OK and the specified JSON response
@@ -429,7 +429,7 @@ describe('POST /event/like', function () {
 
     it('should display page when the put fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .put('/event/like')
             //respond with an error
@@ -455,7 +455,7 @@ describe('POST /event/unlike', function () {
     it('un-likes an event', function (done) {
         const data = { id: 1234 };
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .delete('/like/event')
             //respond with a OK and the specified JSON response
@@ -484,7 +484,7 @@ describe('POST /event/unlike', function () {
 
     it('should display page when the delete fails', function (done) {
         //specify the url to be intercepted
-        nock("http://localhost:8082")
+        nock("http://localhost:8083")
             //define the method to be intercepted
             .delete('/like/event')
             //respond with an error

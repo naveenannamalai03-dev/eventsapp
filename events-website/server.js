@@ -1,8 +1,8 @@
 'use strict';
 
 console.log(`process.env.SERVER = ${process.env.SERVER}`);
-// get the environment variable, but default to localhost:8082 if its not set
-const SERVER = process.env.SERVER ? process.env.SERVER : "http://localhost:8082";
+// get the environment variable, but default to localhost:8083 if its not set
+const SERVER = process.env.SERVER ? process.env.SERVER : "http://localhost:8083";
 
 // express is a nodejs web server
 // https://www.npmjs.com/package/express
@@ -109,7 +109,7 @@ app.post('/event',
             // the URL for the backend service should be set in configuration 
             // using an environment variable. Here, the variable is passed 
             // to npm start inside package.json:
-            //  "start": "SERVER=http://localhost:8082 node server.js",
+            //  "start": "SERVER=http://localhost:8083 node server.js",
             await axios.post(`${SERVER}/event`, req.body, {
                 headers: {
                     "Content-Type": "application/json"
@@ -134,7 +134,7 @@ app.post('/event/update',
             // the URL for the backend service should be set in configuration 
             // using an environment variable. Here, the variable is passed 
             // to npm start inside package.json:
-            //  "start": "SERVER=http://localhost:8082 node server.js",
+            //  "start": "SERVER=http://localhost:8083 node server.js",
             await axios.put(`${SERVER}/event`, req.body, {
                 headers: {
                     "Content-Type": "application/json"
@@ -161,7 +161,7 @@ app.post('/like/event',
             // the URL for the backend service should be set in configuration 
             // using an environment variable. Here, the variable is passed 
             // to npm start inside package.json:
-            //  "start": "BACKEND_URL=http://localhost:8082 node server.js",
+            //  "start": "BACKEND_URL=http://localhost:8083 node server.js",
             await axios.put(`${SERVER}/like/event`, req.body, {
                 headers: {
                     "Content-Type": "application/json"
@@ -188,7 +188,7 @@ app.post('/event/unlike',
             // the URL for the backend service should be set in configuration 
             // using an environment variable. Here, the variable is passed 
             // to npm start inside package.json:
-            //  "start": "BACKEND_URL=http://localhost:8082 node server.js",
+            //  "start": "BACKEND_URL=http://localhost:8083 node server.js",
             await axios.delete(`${SERVER}/like/event`, {
                 data: req.body,
                 headers: {
@@ -276,7 +276,7 @@ app.use((err, req, res, next) => {
 });
 
 // specify the port and start listening
-const SERVICE_PORT = process.env.SERVICE_PORT ? process.env.SERVICE_PORT : 8080;
+const SERVICE_PORT = process.env.SERVICE_PORT ? process.env.SERVICE_PORT : 8082;
 const server = app.listen(SERVICE_PORT, () => {
     const host = server.address().address;
     const port = server.address().port;
